@@ -4,17 +4,18 @@
               novalidate="novalidate"
               name="loginForm"
               class="list center-form">
-            <!--<div>
-                <img src="img/XyURaiZYR9G3SNjWoUDR_17974224_10213141985089114_1629928536_n.png" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
-            </div>-->
+
+            <div>
+                <img src="img/logo1.png" style="display: block; width: 90%; height: auto; margin-left: auto; margin-right: auto;">
+            </div>
+
             <div class="spacer" style="width: 300px; height: 20px;"></div>
 
             <ion-list>
-                <label class="item item-input top-input item-floating-label"
+                <label class="item item-input top-input"
                        ng-class="{'has-error':loginForm.email.$invalid}">
                     <span class="input-label">Email</span>
                     <input type="email"
-                           placeholder="Email"
                            ng-model="formData.email"
                            name="email"
                            ng-required="true" />
@@ -23,21 +24,20 @@
                      ng-messages="loginForm.email.$error"
                      ng-messages-include="templates/form.errors.html">
                 </div>
-                <label class="item item-input bottom-input item-floating-label"
+                <label class="item item-input bottom-input "
                        ng-class="{'has-error':loginForm.password.$invalid}">
                     <span class="input-label">Password</span>
                     <input type="password"
-                           placeholder="Password"
                            ng-model="formData.password"
                            name="password"
                            ng-required="true"
                            ng-minlength="6" />
                 </label>
-                <div class="form-errors"
+                <!--<div class="form-errors"
                      ng-messages="loginForm.password.$error"
                      ng-messages-include="templates/form.errors.html">
                     <div class="form-error" ng-message="minlength">Please enter a valid password.</div>
-                </div>
+                </div>-->
             </ion-list>
             <div class="spacer" style="width: 300px; height: 20px;"></div>
             <button class="button button-positive button-block" type="submit">

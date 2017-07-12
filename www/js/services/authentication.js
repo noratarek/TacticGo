@@ -19,7 +19,7 @@ app.service('AuthService', function ($q) {
             }
 
             return $.ajax(settings).done(function (response) {
-                console.log("logged in" + response);
+
             });
         },
         signup: function (email, password1, password2) {
@@ -37,8 +37,7 @@ app.service('AuthService', function ($q) {
             }
 
             return $.ajax(settings).done(function (response) {
-                    console.log("signed up" + response);
-                });
+            });
         }
     };
     return self;

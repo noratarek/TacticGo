@@ -25,18 +25,17 @@ app.controller('SignupCtrl', function ($scope, $state, AuthService) {
     };
     $scope.signup = function (form) {
         if (form.$valid) {
-            console.log("SignupCtrl::signup");
             AuthService.signup(
               $scope.formData.email,
               $scope.formData.password1,
               $scope.formData.password2)
               .then(function () {
-                  //$state.go("tab.plans");
-                  console.log("ok");
+                  alert('We have created your account. Achieve your goals!');
+                  $state.go("tabsHome");
               });
         }
         else {
-            console.log("Invalid Form");
+            alert('Please enter valid info.');
         }
     };
 });

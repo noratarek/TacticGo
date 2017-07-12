@@ -54,3 +54,16 @@
 ::-webkit-input-placeholder { 
     color:    #000000;
 }
+
+
+.tabs{
+        -webkit-text-fill-color: white;
+}
+
+.item-select {
+  width: 75%; 
+}
+
+.item-select select {
+  left: 0;
+}

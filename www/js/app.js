@@ -2,8 +2,9 @@ var app = angular.module('tacticgo', [
     'ionic',
     //'ngMessages',
     'tacticgo.controllers.authentication',
-    'tacticgo.controllers.account',
-    'tacticgo.services.authentication'
+    'tacticgo.services.authentication',
+    'tacticgo.controllers.plans',
+    'tacticgo.services.plans'
 ]);
 
 app.run(function($ionicPlatform) {
@@ -11,7 +12,6 @@ app.run(function($ionicPlatform) {
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
     }
     if (window.StatusBar) {
       StatusBar.styleDefault();
@@ -19,53 +19,15 @@ app.run(function($ionicPlatform) {
   });
 })
 
-
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
-  })
-
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
-
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
-  })
+  //  .state('app', {
+  //  url: '/app',
+  //  abstract: true,
+  //  templateUrl: 'templates/menu.html',
+  //  controller: 'AppCtrl'
+  //})
 
     .state('login', {
         url: '/login',
@@ -81,9 +43,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
           templateUrl: "templates/authentication/signup.html"
       })
 
+      .state('profile', {
+          url: '/profile',
+          templateUrl: "templates/profile.html",
+          controller: "ProfileCtrl"
+      })
+
+      .state('planForm', {
+          url: '/addPlan',
+          templateUrl: "templates/planForm.html",
+          controller: "AddPlanCtrl"
+      })
+
+    .state('tabsHome', {
+        url: '/tabsHome',
+        controller: 'TabsCtrl',
+        templateUrl: 'templates/tabs/tabsHome.html'
+    })
+
     .state('tabsHome.myPlans', {
         url: '/myPlans',
-        cache: false,
         views: {
             'viewMyPlans': {
                 templateUrl: 'templates/tabs/myPlans.html',
@@ -94,7 +73,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     .state('tabsHome.myTracks', {
         url: '/myTracks',
-        cache: false,
         views: {
             'viewMyTracks': {
                 templateUrl: 'templates/tabs/myTracks.html',
@@ -105,20 +83,31 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     .state('tabsHome.explore', {
         url: '/explore',
-        cache: false,
         views: {
             'viewExplore': {
                 templateUrl: 'templates/tabs/explore.html',
-                controller: 'ExploreCtrl'
+                controller: 'PlansFeedCtrl'
             }
         }
     })
 
-    .state('tabsHome', {
-        url: '/tabsHome',
-        templateUrl: 'templates/tabs/tabsHome.html',
-        abstract: true
-    })
     ;
   $urlRouterProvider.otherwise('/tabsHome/explore');
 });
+
+app.controller('TabsCtrl', function ($scope, $ionicSideMenuDelegate) {
+
+    $scope.openMenu = function () {
+        $ionicSideMenuDelegate.toggleLeft();
+    }
+
+});
+
+app.controller('ProfileCtrl', function ($scope, $ionicSideMenuDelegate) {
+
+    $scope.openMenu = function () {
+        $ionicSideMenuDelegate.toggleLeft();
+    }
+
+});
+

@@ -1,0 +1,26 @@
+<ion-view title="Profile" >
+
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+    </ion-nav-buttons> 
+
+  <ion-content padding="true" class="has-header">
+    <ion-list id="profile-list7">
+      <ion-item class="item-thumbnail-left profile-image" id="profile-list-item32">
+        <img src="{{user.image}}" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
+        <br />
+          <b >{{user.name}}</b>
+        <p>{{user.title}}</p>
+      </ion-item>
+    </ion-list>
+     
+    <h4 id="profile-heading3" style="color:#000000;">Achieved Goals</h4>
+    <ion-list id="profile-list8">
+      <ion-toggle toggle-class="toggle-positive" id="profile-toggle6">Public</ion-toggle>
+      <ion-item class="item-icon-left" id="profile-list-item33">
+        <i class="icon ion-android-done"></i>Better Programmer</ion-item>
+      <ion-item class="item-icon-left" id="profile-list-item34">
+        <i class="icon ion-android-done"></i>Morning Person</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

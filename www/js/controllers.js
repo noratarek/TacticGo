@@ -19,6 +19,12 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
     $scope.modal = modal;
   });
 
+  //function AppCtrl($scope, $ionicSideMenuDelegate) {
+  //    $scope.toggleLeftSideMenu = function () {
+  //        $ionicSideMenuDelegate.toggleLeft();
+  //    };
+  //}
+
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();

@@ -1,0 +1,68 @@
+﻿<ion-view title="Add Plan">
+
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+    </ion-nav-buttons>
+
+    <form ng-submit="addPlan(addPlanForm)"
+          name="addPlanForm"
+          class="list center-form ">
+        <ion-list >
+            <ion-item class="item item-input top-input">
+                <ion-label class="input-ion-item">Title</ion-label>
+                <input type="text"
+                       ng-model="formData.title"
+                       name="title"
+                       ng-required="true" />
+            </ion-item>
+            <div class="spacer" style="width: 300px; height: 7px;"></div>
+            <ion-item class="item item-input">
+                <ion-label class="input-ion-item">Description</ion-label>
+                <textarea type="text"
+                          ng-model="formData.description"
+                          name="description"
+                          ng-required="true" rows="3" ></textarea>
+                </ion-item>
+            <div class="spacer" style="width: 300px; height: 7px;"></div>
+            <ion-item class="item item-input">
+                <ion-label class="input-ion-item">Requirements</ion-label>
+                <textarea type="text" 
+                          ng-model="formData.requirements"
+                          name="requirements"
+                          ng-required="true" rows="3" ></textarea>
+            </ion-item>
+            <div class="spacer" style="width: 300px; height: 7px;"></div>
+            <ion-item class="item item-input">
+                <ion-label class="input-ion-item">Goals</ion-label>
+                <textarea type="text"
+                          ng-model="formData.goals"
+                          name="goals"
+                          ng-required="true"  rows="3" ></textarea>
+            </ion-item>
+            <div class="spacer" style="width: 300px; height: 7px;"></div>
+            <ion-item class="item item-input ">
+                <ion-label class="input-ion-item">Category</ion-label>
+                <input type="text"
+                       ng-model="formData.category"
+                       name="category" />
+            </ion-item>
+            <div class="spacer" style="width: 300px; height: 7px;"></div>
+            <ion-item class="item item-input bottom-input ">
+                <ion-label class="input-ion-item">Level</ion-label>
+                <select  type="text"
+                        ng-model="formData.level"
+                        name="level">
+                    <option value="0" selected>Undefined</option>
+                    <option value="1" >Beginner</option>
+                    <option value="2" >Intermediate</option>
+                    <option value="3" >Advanced</option>
+                </select>
+            </ion-item>
+        </ion-list>
+        <div class="spacer" style="width: 300px; height: 20px;"></div>
+        <button class="button button-positive button-block" type="submit">
+            Publish Plan
+        </button>
+    </form>
+
+</ion-view>

@@ -1,6 +1,8 @@
 ﻿var app = angular.module('tacticgo.services.plans', []);
 
 app.service('PlanStore', function ($q) {
+    var q = $q.defer();
+
     var baseUrl = "https://graduation-project-api.herokuapp.com/api/";
 
     var self = {

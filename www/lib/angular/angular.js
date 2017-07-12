@@ -9905,7 +9905,7 @@ function identifierForController(controller, ident) {
  */
 function $ControllerProvider() {
   var controllers = {},
-      globals = false;
+      globals = true;
 
   /**
    * @ngdoc method
